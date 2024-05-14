@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>第一个 ECharts 实例</title>
+    <!-- 引入 echarts.js -->
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 1000px;height:600px;"></div>
+    <script type="text/javascript">
+       /*import * as echarts from 'echarts';*/
+
+var chartDom = document.getElementById('main');
+var myChart = echarts.init(chartDom);
+var option;
+
+option = {
+  title: {
+    text: '阿根廷'
+  },
+  tooltip: {
+    trigger: 'axis'
+  },
+  legend: {
+    data: ['对华出口', '从华进口', '与中国贸易额']
+  },
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true
+  },
+  toolbox: {
+    feature: {
+      saveAsImage: {}
+    }
+  },
+  xAxis: {
+    type: 'category',
+    boundaryGap: false,
+    data: ['2015', '2016', '2017', '2018', '2019', '2020', '2021' , '2022' , '2023']
+  },
+  yAxis: {
+    type: 'value'
+  },
+  series: [
+    {
+      name: '对华出口',
+      type: 'line',
+      stack: 'Total',
+      data: [571747.6,
+511809.6,
+475422.7,
+351715.4,
+739097.9168,
+681445.6938,
+712432,
+859218,
+665581.1411
+]
+    },
+    {
+      name: '从华进口',
+      type: 'line',
+      stack: 'Total',
+      data: [880510.6,
+720370.1,
+906721.1,
+841807.1,
+688415.4384,
+708381.3681,
+1068798,
+1272388,
+1074261.318
+]
+    },
+    {
+      name: '与中国贸易额',
+      type: 'line',
+      stack: 'Total',
+      data: [1452258.2,
+1232179.7,
+1382143.8,
+1193522.5,
+1427513.355,
+1389827.062,
+1781230,
+2131606,
+1739842.459
+]
+    }
+  ]
+};
+
+option && myChart.setOption(option);
+
+    </script>
+</body>
+</html>
