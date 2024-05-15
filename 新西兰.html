@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>第一个 ECharts 实例</title>
+    <!-- 引入 echarts.js -->
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 1000px;height:600px;"></div>
+    <script type="text/javascript">
+       /*import * as echarts from 'echarts';*/
+
+var chartDom = document.getElementById('main');
+var myChart = echarts.init(chartDom);
+var option;
+
+  option = {
+  title: {
+    text: '新西兰'
+  },
+  tooltip: {
+    trigger: 'axis'
+  },
+  legend: {
+    data: ['对华出口', '从华进口', '与中国贸易额']
+  },
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true
+  },
+  toolbox: {
+    feature: {
+      saveAsImage: {}
+    }
+  },
+  xAxis: {
+    type: 'category',
+    boundaryGap: false,
+    data: ['2015', '2016', '2017', '2018', '2019', '2020', '2021' , '2022' , '2023']
+  },
+  yAxis: {
+    type: 'value'
+  },
+  series: [
+    {
+      name: '对华出口',
+      type: 'line',
+      stack: 'Total',
+      data: [658377.8,
+714062.9,
+939109.8,
+1108333.2,
+1255798.111,
+1207611.911,
+1615598,
+1596911,
+1348775.846
+]
+    },
+    {
+      name: '从华进口',
+      type: 'line',
+      stack: 'Total',
+      data: [491906,
+476828.3,
+510010.3,
+577469.6,
+573630.4819,
+605303.075,
+856063,
+910934,
+787246.5867
+]
+    },
+    {
+      name: '与中国贸易额',
+      type: 'line',
+      stack: 'Total',
+      data: [1150283.8,
+1190891.2,
+1449120.1,
+1685802.8,
+1829428.593,
+1812914.986,
+2471661,
+2507845,
+2136022.433
+]
+    }
+  ]
+};
+
+option && myChart.setOption(option);
+
+    </script>
+</body>
+</html>

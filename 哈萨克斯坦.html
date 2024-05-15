@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>第一个 ECharts 实例</title>
+    <!-- 引入 echarts.js -->
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 1000px;height:600px;"></div>
+    <script type="text/javascript">
+       /*import * as echarts from 'echarts';*/
+
+var chartDom = document.getElementById('main');
+var myChart = echarts.init(chartDom);
+var option;
+
+option = {
+  title: {
+    text: '哈萨克斯坦'
+  },
+  tooltip: {
+    trigger: 'axis'
+  },
+  legend: {
+    data: ['对华出口', '从华进口', '与中国贸易额']
+  },
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true
+  },
+  toolbox: {
+    feature: {
+      saveAsImage: {}
+    }
+  },
+  xAxis: {
+    type: 'category',
+    boundaryGap: false,
+    data: ['2015', '2016', '2017', '2018', '2019', '2020', '2021' , '2022' , '2023']
+  },
+  yAxis: {
+    type: 'value'
+  },
+  series: [
+    {
+      name: '对华出口',
+      type: 'line',
+      stack: 'Total',
+      data: [584894.7,480507.9,637869.1,852660.9,927366.9859,980510.065,1129056,1484088,1632376.8834]
+    },
+    {
+      name: '从华进口',
+      type: 'line',
+      stack: 'Total',
+      data: [844124.1,
+829258.9,
+1156444.3	,
+1135152.8	,
+1272910.0679	,
+1170313.413	,
+1395926	,
+1624940	,
+2469739.7448	,
+]
+    },
+    {
+      name: '与中国贸易额',
+      type: 'line',
+      stack: 'Total',
+      data: [1429018.8	,
+1309766.8,
+1794313.4	,
+1987813.7	,
+2200277.0538	,
+2150823.478	,
+2524982	,
+3109028	,
+4102116.6282	,
+]
+    }
+  ]
+};
+
+option && myChart.setOption(option);
+
+    </script>
+</body>
+</html>

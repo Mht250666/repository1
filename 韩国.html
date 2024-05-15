@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>第一个 ECharts 实例</title>
+    <!-- 引入 echarts.js -->
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 1000px;height:600px;"></div>
+    <script type="text/javascript">
+       /*import * as echarts from 'echarts';*/
+
+var chartDom = document.getElementById('main');
+var myChart = echarts.init(chartDom);
+var option;
+
+option = {
+  title: {
+    text: '韩国'
+  },
+  tooltip: {
+    trigger: 'axis'
+  },
+  legend: {
+    data: ['对华出口', '从华进口', '与中国贸易额']
+  },
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true
+  },
+  toolbox: {
+    feature: {
+      saveAsImage: {}
+    }
+  },
+  xAxis: {
+    type: 'category',
+    boundaryGap: false,
+    data: ['2015', '2016', '2017', '2018', '2019', '2020', '2021' , '2022' , '2023']
+  },
+  yAxis: {
+    type: 'value'
+  },
+  series: [
+    {
+      name: '对华出口',
+      type: 'line',
+      stack: 'Total',
+      data: [17450608.3	,
+15897453.1	,
+17755315.4	,
+20464340.1	,
+17355902.5773	,
+17310391.1776	,
+21344326	,
+19901610	,
+16175022.6614	,
+]
+    },
+    {
+      name: '从华进口',
+      type: 'line',
+      stack: 'Total',
+      data: [10128638.4	,
+9372895.4	,
+10270377.7	,
+10875614.4	,
+11097441.0436	,
+11247683.0122	,
+14880548,
+16097500	,
+14898666.0503	,
+
+]
+    },
+    {
+      name: '与中国贸易额',
+      type: 'line',
+      stack: 'Total',
+      data: [27579246.7	,
+25270348.5	,
+28025693.1	,
+31339954.5	,
+28453343.6209	,
+28558074.1898	,
+36224874	,
+35999110	,
+31073688.7117	,
+
+]
+    }
+  ]
+};
+
+option && myChart.setOption(option);
+
+    </script>
+</body>
+</html>
